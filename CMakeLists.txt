@@ -9,7 +9,7 @@ endif()
 project ("SimpleGame")
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (SimpleGame "SimpleGame.cpp" "SimpleGame.h" "Constants.h" "Character.h" "Character.cpp")
+add_executable (SimpleGame "SimpleGame.cpp" "SimpleGame.h" "Constants.h" "Character.h" "Character.cpp" "PlayerController.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET SimpleGame PROPERTY CXX_STANDARD 20)
