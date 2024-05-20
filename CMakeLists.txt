@@ -1,20 +1,10 @@
-﻿cmake_minimum_required (VERSION 3.8)
-
-# Включение горячей перезагрузки для компиляторов MSVC, если поддерживается.
-if (POLICY CMP0141)
-  cmake_policy(SET CMP0141 NEW)
-  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
-endif()
+﻿cmake_minimum_required (VERSION 3.16)
 
 project ("SimpleGame")
 
+
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (SimpleGame "SimpleGame.cpp" "SimpleGame.h" "Constants.h" "Character.h" "Character.cpp" "PlayerController.h")
-
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET SimpleGame PROPERTY CXX_STANDARD 20)
-endif()
-
+add_executable (SimpleGame "main.cpp"  "map.h" "view.h" "Player.h" "Player.cpp" )
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -32,3 +22,6 @@ find_package(SFML 2 COMPONENTS window graphics system)
 
 # Подключите SFML библиотеки к вашему проекту
 target_link_libraries("SimpleGame" sfml-graphics sfml-audio)
+target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_17)
+
+set(RESOURCE_FILES  "tinystr.h" "tinyxml.h" "tinyxml.lib")
