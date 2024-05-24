@@ -1,6 +1,5 @@
 #pragma once
-
-#pragma once
+#include "menu.h"
 #include <SFML/Graphics.hpp>
 using namespace sf;
 

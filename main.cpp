@@ -4,13 +4,17 @@
 #include "Preview.h"
 #include "Player.h"
 #include "Outro.h"
+#include "menu.h"
 #include <iostream>
+#include "Windows.h"
 #include <sstream>
 using namespace sf;
 
 int main()
 {
+	SetConsoleOutputCP(1251);
 	RenderWindow window(VideoMode(640, 640), "MIGRAINE");
+	menu(window);
 	view.reset(FloatRect(0, 0, 640, 640));
 	Font font;//шрифт 
 	font.loadFromFile("C:/Users/Asus/source/repos/SimpleGame/fonts/Minecraft Rus NEW.otf");
@@ -21,7 +25,8 @@ int main()
 	map.loadFromImage(map_image);
 	Sprite s_map;
 	s_map.setTexture(map);
-	Player p("miu.png", 64, 704, 26, 26);
+	Player p("miu.png", 450, 300, 26, 26);
+	
 	Preview(window);
 
 	float CurrentFrame = 0;
@@ -37,10 +42,6 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-		
-
-
-
 		if ((Keyboard::isKeyPressed(Keyboard::Left))|| (Keyboard::isKeyPressed(Keyboard::A))) {
 			p.dir = 1; p.speed = 0.32;
 			CurrentFrame += 0.009 * time;
@@ -69,10 +70,6 @@ int main()
 		p.update(time);
 		window.setView(view);
 		window.clear();
-		
-
-
-
 		for (int i = 0; i < HEIGHT_MAP; i++)
 			for (int j = 0; j < WIDTH_MAP; j++)
 			{

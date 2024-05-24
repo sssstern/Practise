@@ -4,7 +4,7 @@ project ("SimpleGame")
 
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (SimpleGame "main.cpp"  "map.h" "view.h" "Player.h"     "Preview.h" "Outro.h")
+add_executable (SimpleGame "main.cpp"  "map.h" "view.h" "Player.h"     "Preview.h" "Outro.h" "menu.h")
 
 set(CMAKE_CXX_STANDARD 14)
 
