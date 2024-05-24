@@ -25,7 +25,7 @@ int main()
 	map.loadFromImage(map_image);
 	Sprite s_map;
 	s_map.setTexture(map);
-	Player p("miu.png", 450, 300, 26, 26);
+	Player p("miu.png", 64, 704, 26, 26);
 	
 	Preview(window);
 
