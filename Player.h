@@ -21,25 +21,24 @@ public:
 		File = F;
 		w = W; h = H;
 		image.loadFromFile("C:/Users/Asus/source/repos/SimpleGame/images/" + File);
-		image.createMaskFromColor(Color(41, 33, 59));
 		texture.loadFromImage(image);
 		sprite.setTexture(texture);
 		x = X; y = Y;
 		sprite.setTextureRect(IntRect(0, 0, w, h));
-		IntRect rect = IntRect(x, y, w, h);
-		/*sprite.setScale(1.2f, 1.2f);*/
 	}
+
 	void update(float time)
 	{
 		switch (dir)
 		{
 		case 0: dx = speed; dy = 0; break;
-		case 1: dx = -speed; dy = 0; break;
+		case 1: dx = -speed;  dy = 0; break;
 		case 2: dx = 0; dy = speed; break;
-		case 3: dx = 0; dy = -speed; break;
+		case 3: dx = 0; dy = -speed;  break;
 		}
-		x += dx * time;
-		y += dy * time;
+		x += dx * (time);
+		y += dy * (time);
+	
 		speed = 0;
 		sprite.setPosition(x, y);
 		interactionWithMap();

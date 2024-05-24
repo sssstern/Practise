@@ -10,7 +10,7 @@ using namespace sf;
 
 int main()
 {
-	RenderWindow window(VideoMode(640, 640), "MIGRANE");
+	RenderWindow window(VideoMode(640, 640), "MIGRAINE");
 	view.reset(FloatRect(0, 0, 640, 640));
 	Font font;//шрифт 
 	font.loadFromFile("C:/Users/Asus/source/repos/SimpleGame/fonts/Minecraft Rus NEW.otf");
@@ -21,7 +21,7 @@ int main()
 	map.loadFromImage(map_image);
 	Sprite s_map;
 	s_map.setTexture(map);
-	Player p("miu.png", 62, 704, 23, 23);
+	Player p("miu.png", 64, 704, 26, 26);
 	Preview(window);
 
 	float CurrentFrame = 0;
@@ -30,7 +30,7 @@ int main()
 	{
 		float time = clock.getElapsedTime().asMicroseconds();
 		clock.restart();
-		time = time / 800;
+		time = time / 1344;
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -42,25 +42,25 @@ int main()
 
 
 		if ((Keyboard::isKeyPressed(Keyboard::Left))|| (Keyboard::isKeyPressed(Keyboard::A))) {
-			p.dir = 1; p.speed = 0.1;
+			p.dir = 1; p.speed = 0.32;
 			CurrentFrame += 0.009 * time;
 			if (CurrentFrame > 3) CurrentFrame -= 3;
 			p.sprite.setTextureRect(IntRect(30 * int(CurrentFrame), 30, 32, 32));
 		}
 		if ((Keyboard::isKeyPressed(Keyboard::Right))|| (Keyboard::isKeyPressed(Keyboard::D))) {
-			p.dir = 0; p.speed = 0.1;
+			p.dir = 0; p.speed = 0.32;
 			CurrentFrame += 0.009 * time;
 			if (CurrentFrame > 3) CurrentFrame -= 3;
 			p.sprite.setTextureRect(IntRect(30 * int(CurrentFrame), 30, 32, 32));
 		}
 		if ((Keyboard::isKeyPressed(Keyboard::Up)) || (Keyboard::isKeyPressed(Keyboard::W))) {
-			p.dir = 3; p.speed = 0.1;
+			p.dir = 3; p.speed = 0.32;
 			CurrentFrame += 0.009 * time;
 			if (CurrentFrame > 3) CurrentFrame -= 3;
 			p.sprite.setTextureRect(IntRect(30 * int(CurrentFrame), 90, 32, 32)); 
 		}
 		if ((Keyboard::isKeyPressed(Keyboard::Down)) || (Keyboard::isKeyPressed(Keyboard::S))) {
-			p.dir = 2; p.speed = 0.1;
+			p.dir = 2; p.speed = 0.32;
 			CurrentFrame += 0.009 * time;
 			if (CurrentFrame > 3) CurrentFrame -= 3;
 			p.sprite.setTextureRect(IntRect(30 * int(CurrentFrame), 0, 32, 32));
